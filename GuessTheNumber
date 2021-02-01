@@ -1,0 +1,76 @@
+package guessgame;
+import java.util.Random;
+import java.util.Scanner;
+
+public class GuessGame {
+
+    public static void main(String[] args) {
+        System.out.println("Tahmin oyununa hoş geldin");
+        System.out.println("Adını öğrenebilir miyim?");
+        
+        Scanner scanner = new Scanner(System.in);
+        String isim = scanner.next();
+        System.out.println("Merhaba " + isim);
+        
+        System.out.println("Başlayalım!");
+        System.out.println("\t1. Olur.");
+        System.out.println("\t2. Hazır değilim.");
+        
+        int baslangic = scanner.nextInt();
+        
+        while(baslangic != 1){
+            System.out.println("Başlayalım!");
+            System.out.println("\t1. Olur.");
+            System.out.println("\t2. Hazır değilim.");
+            
+            baslangic = scanner.nextInt();
+        }
+        
+        Random random = new Random();
+        //Random sayının 0 ile 20 arasında olmasını istiyoruz. random.nextInt(20)
+        int randomSayi = random.nextInt(20) + 1;
+        
+        System.out.println("Bir sayı tahmin et: ");
+        int kullaniciTahmini = scanner.nextInt();
+        
+        int denemeSayisi = 0;
+        boolean kazandi = false;
+        boolean bitti = false;
+        
+        while (!bitti){
+            denemeSayisi++;
+            
+            if (denemeSayisi < 5)
+            {
+                if(randomSayi == kullaniciTahmini)
+                {
+                    kazandi = true;
+                    bitti = true;       
+                }
+                else if (kullaniciTahmini > randomSayi)
+                {
+                    System.out.println("Daha küçük bir sayı tahmin et");
+                    kullaniciTahmini = scanner.nextInt();
+                }
+                else
+                {
+                    System.out.println("Daha büyük bir sayı tahmin et");
+                    kullaniciTahmini = scanner.nextInt();
+                } 
+            }
+            else
+            {
+                bitti = true;
+            }
+        }   
+        if (kazandi)
+        {
+            System.out.println("Kazandınız! " + denemeSayisi + ". denemede bildiniz.");    
+        }
+        else
+        {
+            System.out.println("Oyun bitti.");
+            System.out.println("Gizli sayı: " + randomSayi);
+        }
+    }   
+}
