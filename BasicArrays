@@ -1,0 +1,51 @@
+package simplearrays;
+
+import java.util.Scanner;
+
+public class SimpleArrays {
+
+
+    public static void main(String[] args) {
+        //String[10] boyutunu belirtir
+        //String[] ogrenci = new String[10];
+        
+        //listeye ekleme yapmak yol = 1
+        //ogrenci[0] = "Zeynep";
+        //ogrenci[1] = "Dilara";
+        //ogrenci[2] = "Şimşek";
+        
+        //listeye ekleme yapmak yol = 2
+        //String[] ogretmenler = {"Zeynep", "Dilara", "Şimşek"};
+        
+        //integer değerler için liste yapısı
+        //int[] sayilar = {1,2,3,4};
+        
+        //listedeki elemanlara ulaşmak
+        //for (int i=0; i<4; i++){
+        //    System.out.println(sayilar[i]);}
+        
+        //eğer listedeki elemanların kaç tane olduğunu bilmiyorsak
+        //liste boyutuna ulaşmak için .length kullanılır 
+        //örneğin sayilar.length listenin boyutunu verir.
+        
+        String[] isimler = {"Zeynep", "Dilara", "Şimşek"};
+        int[] sayilar = {56578, 321468, 875694};
+        for (int i=0; i<isimler.length; i++){
+            System.out.println(isimler[i]);
+        }
+        
+        System.out.println("Bir isim girin:");
+        Scanner scanner = new Scanner(System.in);
+        String isim = scanner.next();
+        for (int i=0; i<isimler.length; i++){
+            // isim == isimler[i] kullanırsam hata verir
+            // string ifadelerin eşitliğini kıyaslamak için .equals kullanılır
+            if(isim.equals(isimler[i])){
+                System.out.println(sayilar[i]);
+                        
+            }
+        }
+        
+    }
+    
+}
